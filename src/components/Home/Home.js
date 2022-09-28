@@ -8,19 +8,18 @@ const Home = () => {
   const [players, setPlayers] = useState([]);
   useEffect(() => {
     fetch(
-      `https://www.thesportsdb.com/api/v1/json/2/searchplayers.php?p={search}`
+      `https://www.thesportsdb.com/api/v1/json/2/searchplayers.php?p=${search}`
     )
       .then((res) => res.json())
       .then((data) => setPlayers(data.player));
   }, [search]);
-  console.log(players);
   console.log(search);
 
   return (
     <div>
       <div className="home-container">
-        <Search setSearch={setSearch}></Search>
         <div className="playres-container">
+          <Search setSearch={setSearch}></Search>
           {players.map((player) => (
             <Playres player={player}></Playres>
           ))}

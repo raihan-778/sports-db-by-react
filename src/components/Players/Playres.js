@@ -1,10 +1,13 @@
 import React from "react";
 import "./Playres.css";
 
-const Playres = ({ playres }) => {
+const Playres = ({ player }) => {
+  console.log(player);
+
   return (
     <div>
-      <h2>I am form playres</h2>
+      <h2>{player.strPlayer}</h2>
+      <img src={player.strThumb} alt="" />
     </div>
   );
 };
